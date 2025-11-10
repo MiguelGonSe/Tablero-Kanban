@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5ff;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#container-tarjet {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tarjet {
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 250px;
+}
+
+.tarjet h2 {
+    text-align: center;
+}
+
+.dropzone {
+    background: #f8f8f8;
+    border: 1px dashed #aaa;
+    min-height: 200px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.add-tarjet {
+    width: 100%;
+    background-color: #7375f9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.task {
+    background: #e0e0ff;
+    border: 1px solid #7375f9;
+    border-radius: 6px;
+    padding: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task button {
+    border: none;
+    background: none;
+    color: red;
+    cursor: pointer;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.formulario input {
+    padding: 5px;
+}
