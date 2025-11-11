@@ -8,7 +8,7 @@
     --color-cancelar: #f0f0f0;
     --color-eliminar: #ff4d4d;
     --color-task-1: #ff9999;
-    --color-task-2: #cc99ff;
+    --color-task-2: #d2a6fe;
     --color-task-3: #99ff99;
 }
 
@@ -101,20 +101,28 @@ h1 {
     border-radius: 6px;
     padding: 6px;
     margin-bottom: 6px;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: padding-right 0.3s ease;
+    position: relative;
+}
+
+.task span {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
 }
 
 /* animación  */
 .task button {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     border: none;
     background: none;
     color: var(--color-eliminar);
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .task:hover button {
@@ -122,7 +130,11 @@ h1 {
 }
 
 .task:hover {
-    padding-right: 20px;
+    padding-right: 2.2rem;
+}
+
+.task:hover span {
+    margin-left: 10px;
 }
 
 .dragging {
