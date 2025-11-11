@@ -1,11 +1,25 @@
+
+:root {
+    --color-principal: #7375f9;
+    --color-secundario: #e0e0ff;
+    --color-fondo: #f5f5ff;
+    --color-borde: #ccc;
+    --color-texto: #333;
+    --color-hover: #5b5df0;
+    --color-cancelar: #f0f0f0;
+    --color-eliminar: #ff4d4d;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background: #f5f5ff;
+    background: var(--color-fondo);
+    margin: 0;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: var(--color-texto);
 }
 
 #container-tarjet {
@@ -13,18 +27,28 @@ h1 {
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap; 
 }
 
 .tarjet {
     background: white;
-    border: 2px solid #ccc;
+    border: 1px solid var(--color-borde);
     border-radius: 10px;
     padding: 10px;
     width: 250px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tarjet:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fafaff;
 }
 
 .tarjet h2 {
     text-align: center;
+    color: var(--color-texto);
 }
 
 .dropzone {
@@ -35,33 +59,56 @@ h1 {
     border-radius: 6px;
 }
 
+.dropzone.dragover {
+    background-color: var(--color-fondo); 
+    border-color: var(--color-principal);
+}
+
 .add-tarjet {
     width: 100%;
-    background-color: #7375f9;
+    background-color: var(--color-principal);
     color: white;
     border: none;
     border-radius: 6px;
     padding: 8px;
     cursor: pointer;
     margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-tarjet:hover {
+    background-color: var(--color-hover);
+    transform: scale(1.03);
 }
 
 .task {
-    background: #e0e0ff;
-    border: 1px solid #7375f9;
+    background: var(--color-secundario);
+    border: 1px solid var(--color-principal);
     border-radius: 6px;
     padding: 6px;
     margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
+/* animación  */
 .task button {
     border: none;
     background: none;
-    color: red;
+    color: var(--color-eliminar);
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.task:hover button {
+    opacity: 1;
+}
+
+.task:hover {
+    padding-right: 20px;
 }
 
 .dragging {
@@ -77,4 +124,36 @@ h1 {
 
 .formulario input {
     padding: 5px;
+    border-radius: 4px;
+    border: 1px solid var(--color-borde);
+}
+
+button {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button.confirmar {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+button.confirmar:hover {
+    background-color: var(--color-hover);
+    box-shadow: 0 0 6px rgba(115, 117, 249, 0.4);
+}
+
+button.cancelar {
+    background-color: var(--color-cancelar);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+}
+
+button.cancelar:hover {
+    background-color: #e0e0e0;
 }

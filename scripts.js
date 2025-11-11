@@ -18,12 +18,14 @@ botones.forEach(boton => {
         input.placeholder = "Escribe tu tarea...";
 
         const addBtn = document.createElement("button");
-        addBtn.type = "button"; 
+        addBtn.type = "button";
         addBtn.textContent = "Confirmar";
+        addBtn.classList.add("confirmar");
 
         const cancelBtn = document.createElement("button");
-        cancelBtn.type = "button"; 
+        cancelBtn.type = "button";
         cancelBtn.textContent = "Cancelar";
+        cancelBtn.classList.add("cancelar");
 
         form.appendChild(input);
         form.appendChild(addBtn);
@@ -58,9 +60,8 @@ botones.forEach(boton => {
 
             dropzone.appendChild(tarea); // Insertamos al final
 
-            // Drag & Drop básico
-            tarea.ondragstart = () => tarea.classList.add("dragging");
-            tarea.ondragend = () => tarea.classList.remove("dragging");
+            tarea.addEventListener("dragstart", () => tarea.classList.add("dragging"));
+            tarea.addEventListener("dragend", () => tarea.classList.remove("dragging"));
 
             form.remove();
             boton.style.display = "block";
@@ -75,6 +76,8 @@ const dropzones = document.querySelectorAll(".dropzone");
 dropzones.forEach(zone => {
     zone.addEventListener("dragover", e => {
         e.preventDefault();
+        zone.classList.add("dragover");
+
         const dragging = document.querySelector(".dragging");
         if (!dragging) return;
 
@@ -96,5 +99,15 @@ dropzones.forEach(zone => {
         if (!inserted) {
             zone.appendChild(dragging);
         }
+    });
+    
+    // Quitar resaltado al salir de la columna
+    zone.addEventListener("dragleave", () => {
+        zone.classList.remove("dragover");
+    });
+
+    // Quitar resaltado al soltar la tarjeta
+    zone.addEventListener("drop", () => {
+        zone.classList.remove("dragover");
     });
 });
