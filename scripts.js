@@ -70,7 +70,6 @@ botones.forEach(boton => {
     }
 });
 
-// Drag & Drop sencillo para colocar entre tarjetas
 const dropzones = document.querySelectorAll(".dropzone");
 
 dropzones.forEach(zone => {
